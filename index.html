@@ -109,8 +109,8 @@
         .gallery-img {
             position: relative;
             cursor: pointer;
-            width: clamp(100px, 15vw, 140px);
-            height: clamp(100px, 15vw, 140px);
+            width: clamp(80px, 12vw, 100px);
+            height: clamp(80px, 12vw, 100px);
             overflow: hidden;
             aspect-ratio: 1/1;
         }
@@ -118,7 +118,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 9999px;
             border: 3px solid #9333ea;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
@@ -137,42 +137,73 @@
             right: 0;
             background: rgba(147, 51, 234, 0.95);
             color: #e0e0e0;
-            padding: 4px;
+            padding: 3px;
             text-align: center;
-            font-size: clamp(0.65rem, 1.6vw, 0.8rem);
+            font-size: clamp(0.6rem, 1.5vw, 0.7rem);
             opacity: 0;
             transition: opacity 0.3s;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
         }
         .wish-card-1 { background-color: rgba(46, 139, 87, 0.2); } /* Hunter Green - Sac */
         .wish-card-2 { background-color: rgba(0, 0, 139, 0.2); } /* Dark Blue - Vaibhavi */
         .wish-card-3 { background-color: rgba(0, 128, 128, 0.2); } /* Teal - Mansha */
         .wish-card-4 { background-color: rgba(255, 127, 127, 0.2); } /* Coral - Aditya */
         .wish-card-5 { background-color: rgba(147, 112, 219, 0.2); } /* Medium Purple - Megha */
+        .wish-card-6 { background-color: rgba(255, 215, 0, 0.2); } /* Gold - Ary */
         .wish-card p {
             line-height: 1.4;
         }
         @media (max-width: 640px) {
             .container { padding: 0 0.5rem; }
-            .gallery-img { width: clamp(90px, 18vw, 120px); height: clamp(90px, 18vw, 120px); }
-            .gallery { gap: 4px; justify-items: center; }
-            .wish-card img { width: clamp(64px, 15vw, 80px); height: clamp(64px, 15vw, 80px); }
-            .wish-card p { font-size: clamp(0.65rem, 1.8vw, 0.75rem); }
+            .landing-img, .wish-img, .gallery-img { 
+                width: clamp(70px, 15vw, 90px); 
+                height: clamp(70px, 15vw, 90px); 
+            }
+            .gallery { 
+                gap: 4px; 
+                justify-items: center; 
+                auto-rows: clamp(70px, 15vw, 90px); 
+            }
+            .wish-card img { 
+                width: clamp(70px, 15vw, 90px); 
+                height: clamp(70px, 15vw, 90px); 
+            }
+            .wish-card p { font-size: clamp(0.6rem, 1.7vw, 0.7rem); }
             .card { height: clamp(100px, 15vw, 120px); }
             .text-3xl { font-size: clamp(1.4rem, 3.5vw, 1.8rem); }
             .text-2xl { font-size: clamp(1.2rem, 3vw, 1.5rem); }
-            .text-sm { font-size: clamp(0.65rem, 1.8vw, 0.75rem); }
-            .handwritten p { font-size: clamp(0.75rem, 2vw, 0.9rem); }
+            .text-sm { font-size: clamp(0.6rem, 1.7vw, 0.7rem); }
+            .handwritten p { font-size: clamp(0.7rem, 2vw, 0.85rem); }
         }
         @media (min-width: 641px) and (max-width: 1024px) {
             .container { padding: 0 1rem; }
-            .gallery-img { width: clamp(95px, 16vw, 130px); height: clamp(95px, 16vw, 130px); }
-            .gallery { gap: 4px; justify-items: center; }
-            .wish-card img { width: clamp(72px, 14vw, 88px); height: clamp(72px, 14vw, 88px); }
-            .wish-card p { font-size: clamp(0.65rem, 1.8vw, 0.75rem); }
-            .handwritten p { font-size: clamp(0.8rem, 2.1vw, 0.95rem); }
+            .landing-img, .wish-img, .gallery-img { 
+                width: clamp(75px, 13vw, 95px); 
+                height: clamp(75px, 13vw, 95px); 
+            }
+            .gallery { 
+                gap: 4px; 
+                justify-items: center; 
+                auto-rows: clamp(75px, 13vw, 95px); 
+            }
+            .wish-card img { 
+                width: clamp(75px, 13vw, 95px); 
+                height: clamp(75px, 13vw, 95px); 
+            }
+            .wish-card p { font-size: clamp(0.6rem, 1.7vw, 0.7rem); }
+            .handwritten p { font-size: clamp(0.75rem, 2.1vw, 0.9rem); }
         }
         @media (min-width: 1025px) {
-            .gallery { gap: 4px; justify-items: center; }
+            .landing-img, .wish-img, .gallery-img { 
+                width: clamp(80px, 12vw, 100px); 
+                height: clamp(80px, 12vw, 100px); 
+            }
+            .gallery { 
+                gap: 4px; 
+                justify-items: center; 
+                auto-rows: clamp(80px, 12vw, 100px); 
+            }
             .wish-card p { font-size: clamp(0.65rem, 1.8vw, 0.75rem); }
             .handwritten p { font-size: clamp(0.85rem, 2.2vw, 1rem); }
         }
@@ -181,10 +212,10 @@
 <body>
     <!-- Landing Page -->
     <section class="py-6 bg-gradient-to-b from-gray-900 to-purple-900 relative">
-        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 max-w-5xl">
-            <img src="Ric.jpeg" alt="Richa's Picture" class="w-[clamp(100px,15vw,120px)] h-[clamp(100px,15vw,120px)] rounded-full border-4 border-purple-600 bounce object-cover">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-center gap-4 px-4 max-w-5xl">
+            <img src="Ric.jpeg" alt="Richa's Picture" class="landing-img rounded-full border-4 border-purple-600 bounce object-cover">
             <h1 class="text-[clamp(1.4rem,3.5vw,1.8rem)] text-purple-400 font-bold neon-glow text-center my-4">Happy Birthday Richa 🎉</h1>
-            <img src="Eevee.jpg" alt="Eevee" class="w-[clamp(100px,15vw,120px)] h-[clamp(100px,15vw,120px)] rounded-full border-4 border-purple-600 bounce object-cover">
+            <img src="Eevee.jpg" alt="Eevee" class="landing-img rounded-full border-4 border-purple-600 bounce object-cover">
         </div>
         <div class="absolute inset-0 pointer-events-none">
             <div class="digital-effect bg-red-600 rounded-full left-[10%]" style="animation-delay: 0s;"></div>
@@ -197,25 +228,29 @@
     <section class="py-6 bg-gray-800 text-center">
         <h2 class="text-[clamp(1.4rem,3.5vw,1.8rem)] font-semibold text-purple-400 neon-glow mb-6">Friends’ Wishes 💌</h2>
         <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4 max-w-5xl">
-            <div class="flip-in p-3 border-2 border-purple-600 rounded-md shadow-md wish-card-1">
-                <img src="Sac_V.jpg" alt="Sac" class="w-[clamp(80px,15vw,96px)] h-[clamp(80px,15vw,96px)] mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
+            <div class="flip-in p-2 border-2 border-purple-600 rounded-md shadow-md wish-card-1">
+                <img src="Sac_V.jpg" alt="Sac" class="wish-img mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
                 <p class="text-[clamp(0.65rem,1.8vw,0.75rem)] text-gray-300"><strong>Sac:</strong> Happy Birthday! Your Taekwondo kicks are as epic as your BTS dance moves!</p>
             </div>
-            <div class="flip-in p-3 border-2 border-purple-600 rounded-md shadow-md wish-card-2">
-                <img src="Vaibhavir.jpeg" alt="Vaibhavi" class="w-[clamp(80px,15vw,96px)] h-[clamp(80px,15vw,96px)] mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
+            <div class="flip-in p-2 border-2 border-purple-600 rounded-md shadow-md wish-card-2">
+                <img src="Vaibhavir.jpeg" alt="Vaibhavi" class="wish-img mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
                 <p class="text-[clamp(0.65rem,1.8vw,0.75rem)] text-gray-300"><strong>Vaibhavi:</strong> Happy Birthday Richa🫂! Even though we're apart, you're always in my heart and on my mind🥹. I can't wait until we can celebrate together, but until then, sending you virtual hugs and wishing you the happiest, most joy-filled day! 💕 Our bond is strong enough to bridge any distance or school. Cheers to another year of being fabulous, no matter how far apart we are! 🫂❤</p>
             </div>
-            <div class="flip-in p-3 border-2 border-purple-600 rounded-md shadow-md wish-card-3">
-                <img src="Mansha.jpg" alt="Mansha" class="w-[clamp(80px,15vw,96px)] h-[clamp(80px,15vw,96px)] mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
+            <div class="flip-in p-2 border-2 border-purple-600 rounded-md shadow-md wish-card-3">
+                <img src="Mansha.jpg" alt="Mansha" class="wish-img mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
                 <p class="text-[clamp(0.65rem,1.8vw,0.75rem)] text-gray-300"><strong>Mansha:</strong> Wishing you a colorful birthday full of art and BTS vibes!</p>
             </div>
-            <div class="flip-in p-3 border-2 border-purple-600 rounded-md shadow-md wish-card-4">
-                <img src="Adi.jpg" alt="Aditya" class="w-[clamp(80px,15vw,96px)] h-[clamp(80px,15vw,96px)] mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
+            <div class="flip-in p-2 border-2 border-purple-600 rounded-md shadow-md wish-card-4">
+                <img src="Adi.jpg" alt="Aditya" class="wish-img mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
                 <p class="text-[clamp(0.65rem,1.8vw,0.75rem)] text-gray-300"><strong>Aditya:</strong> Happy Birthday! Keep kicking it in Taekwondo and science!</p>
             </div>
-            <div class="flip-in p-3 border-2 border-purple-600 rounded-md shadow-md wish-card-5">
-                <img src="Megha_V.jpg" alt="Megha" class="w-[clamp(80px,15vw,96px)] h-[clamp(80px,15vw,96px)] mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
+            <div class="flip-in p-2 border-2 border-purple-600 rounded-md shadow-md wish-card-5">
+                <img src="Megha_V.jpg" alt="Megha" class="wish-img mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
                 <p class="text-[clamp(0.65rem,1.8vw,0.75rem)] text-gray-300"><strong>Megha:</strong> Happy Birthday, Richa! Wishing You A Day Filled With Love, Laughter, And All Your Favorite Things. 🎉 May This Year Bring You Joy, Success, And Unforgettable Moments. You Deserve To Be Celebrated And Cherished. ❤ Happy Birthday And May God Bless You! 💙</p>
+            </div>
+            <div class="flip-in p-2 border-2 border-purple-600 rounded-md shadow-md wish-card-6">
+                <img src="Ary.jpg" alt="Ary" class="wish-img mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
+                <p class="text-[clamp(0.65rem,1.8vw,0.75rem)] text-gray-300"><strong>Ary:</strong> Happy Birthday, Richa! Your passion for BTS and science is out of this world! Keep shining! 🌟</p>
             </div>
         </div>
     </section>
@@ -225,43 +260,43 @@
         <h2 class="text-[clamp(1.4rem,3.5vw,1.8rem)] font-semibold text-purple-400 neon-glow mb-6">Photo Gallery 📸</h2>
         <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 px-4 max-w-5xl gallery">
             <div class="gallery-img">
-                <img src="Ric.jpeg" alt="Memory 1" class="rounded-md border-3">
+                <img src="Ric.jpeg" alt="Memory 1" class="rounded-full border-3">
                 <span class="caption">Richa In Her Favourite Colour</span>
             </div>
             <div class="gallery-img">
-                <img src="Ric Jr Cake.jpeg" alt="Memory 2" class="rounded-md border-3">
+                <img src="Ric Jr Cake.jpeg" alt="Memory 2" class="rounded-full border-3">
                 <span class="caption">Knife Queen</span>
             </div>
             <div class="gallery-img">
-                <img src="Ric Competetion.jpeg" alt="Memory 3" class="rounded-md border-3">
+                <img src="Ric Competetion.jpeg" alt="Memory 3" class="rounded-full border-3">
                 <span class="caption">Certificate Secured, Memories Unlocked 🥇</span>
             </div>
             <div class="gallery-img">
-                <img src="Get Together.jpeg" alt="Memory 4" class="rounded-md border-3">
+                <img src="Get Together.jpeg" alt="Memory 4" class="rounded-full border-3">
                 <span class="caption">Mini Crew</span>
             </div>
             <div class="gallery-img">
-                <img src="Ric_V.jpg" alt="Memory 5" class="rounded-md border-3">
+                <img src="Ric_V.jpg" alt="Memory 5" class="rounded-full border-3">
                 <span class="caption">Behind The Scenes, Running The Scenes</span>
             </div>
             <div class="gallery-img">
-                <img src="Ric-Megha.jpg" alt="Memory 6" class="rounded-md border-3">
+                <img src="Ric-Megha.jpg" alt="Memory 6" class="rounded-full border-3">
                 <span class="caption">After The Hustle!</span>
             </div>
             <div class="gallery-img">
-                <img src="https://via.placeholder.com/200?text=Taekwondo+Kick" alt="Memory 7" class="rounded-md border-3">
+                <img src="https://via.placeholder.com/200?text=Taekwondo+Kick" alt="Memory 7" class="rounded-full border-3">
                 <span class="caption">Taekwondo Kick</span>
             </div>
             <div class="gallery-img">
-                <img src="https://via.placeholder.com/200?text=Art+Studio" alt="Memory 8" class="rounded-md border-3">
+                <img src="https://via.placeholder.com/200?text=Art+Studio" alt="Memory 8" class="rounded-full border-3">
                 <span class="caption">Art Studio</span>
             </div>
             <div class="gallery-img">
-                <img src="https://via.placeholder.com/200?text=Winter+Stroll" alt="Memory 9" class="rounded-md border-3">
+                <img src="https://via.placeholder.com/200?text=Winter+Stroll" alt="Memory 9" class="rounded-full border-3">
                 <span class="caption">Winter Stroll</span>
             </div>
             <div class="gallery-img">
-                <img src="https://via.placeholder.com/200?text=Science+Fair" alt="Memory 10" class="rounded-md border-3">
+                <img src="https://via.placeholder.com/200?text=Science+Fair" alt="Memory 10" class="rounded-full border-3">
                 <span class="caption">Science Fair Win</span>
             </div>
         </div>
