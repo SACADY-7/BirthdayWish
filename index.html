@@ -37,28 +37,14 @@
         .flip-in {
             animation: flipIn 1s ease-in-out;
         }
-        @keyframes equalizer {
-            0% { height: 8px; }
-            50% { height: 16px; }
-            100% { height: 8px; }
-        }
-        .equalizer-bar {
-            display: inline-block;
-            width: 4px;
-            background-color: #00ffcc;
-            margin-right: 2px;
-            animation: equalizer 0.5s infinite alternate;
-        }
-        .equalizer-bar.active {
-            box-shadow: 0 0 5px #00ffcc;
-        }
-        .equalizer-bar:nth-child(2) { animation-delay: 0.1s; }
-        .equalizer-bar:nth-child(3) { animation-delay: 0.2s; }
-        .equalizer-bar:nth-child(4) { animation-delay: 0.3s; }
         .card {
             perspective: 1000px;
             position: relative;
-            height: clamp(100px, 15vw, 120px);
+            height: clamp(120px, 18vw, 140px);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
         }
         .card:hover .card-front {
             transform: rotateY(180deg);
@@ -74,10 +60,15 @@
             height: 100%;
             border: 2px solid #ff0000;
             border-radius: 8px;
-            background-color: #2a2a4e;
+            background: linear-gradient(to bottom right, #4b0082, #1e3a8a);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         .card-back {
             transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
         .digital-effect {
             position: absolute;
@@ -107,8 +98,8 @@
             z-index: 1000;
         }
         .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
+            max-width: min(90vw, 600px);
+            max-height: 90vh;
             border: 4px solid #a855f7;
             box-shadow: 0 0 20px #a855f7;
             object-fit: contain;
@@ -125,6 +116,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #a855f7;
+        }
+        .gallery-img:hover img {
+            transform: scale(1.05);
+            transition: transform 0.3s;
         }
         .gallery-img:hover .caption {
             opacity: 1;
@@ -136,46 +133,22 @@
             right: 0;
             background: rgba(168, 85, 247, 0.8);
             color: #e0e0e0;
-            padding: 2px;
+            padding: 4px;
             text-align: center;
             font-size: clamp(0.75rem, 2vw, 0.9rem);
             opacity: 0;
             transition: opacity 0.3s;
         }
-        select {
-            background-color: #2a2a4e;
-            color: #e0e0e0;
-            border: 2px solid #a855f7;
-            padding: clamp(4px, 1vw, 6px);
-            border-radius: 4px;
-            width: 100%;
-            max-width: clamp(200px, 50vw, 300px);
-        }
-        select:focus {
-            outline: none;
-            box-shadow: 0 0 10px #a855f7;
-        }
-        .wish-card-1 { background-color: rgba(46, 139, 87, 0.2); } /* Hunter Green */
-        .wish-card-2 { background-color: rgba(75, 0, 130, 0.2); } /* Dark Purple */
-        .wish-card-3 { background-color: rgba(139, 0, 0, 0.2); } /* Red */
-        .wish-card-4 { background-color: rgba(0, 0, 139, 0.2); } /* Dark Blue */
-        .wish-card-5 { background-color: rgba(155, 27, 48, 0.2); } /* Garnet Red */
-        .wish-card-6 { background-color: rgba(0, 128, 128, 0.2); } /* Teal */
-        .wish-card-7 { background-color: rgba(255, 127, 127, 0.2); } /* Coral */
-        .wish-card-8 { background-color: rgba(147, 112, 219, 0.2); } /* Medium Purple */
-        .gallery-img-1 { border-color: rgba(46, 139, 87, 0.5); } /* Hunter Green */
-        .gallery-img-2 { border-color: rgba(75, 0, 130, 0.5); } /* Dark Purple */
-        .gallery-img-3 { border-color: rgba(139, 0, 0, 0.5); } /* Red */
-        .gallery-img-4 { border-color: rgba(0, 0, 139, 0.5); } /* Dark Blue */
-        .gallery-img-5 { border-color: rgba(155, 27, 48, 0.5); } /* Garnet Red */
-        .gallery-img-6 { border-color: rgba(0, 128, 128, 0.5); } /* Teal */
-        .gallery-img-7 { border-color: rgba(255, 127, 127, 0.5); } /* Coral */
-        .gallery-img-8 { border-color: rgba(147, 112, 219, 0.5); } /* Medium Purple */
+        .wish-card-1 { background-color: rgba(46, 139, 87, 0.2); } /* Hunter Green - Sac */
+        .wish-card-2 { background-color: rgba(0, 0, 139, 0.2); } /* Dark Blue - Vaibhavi */
+        .wish-card-3 { background-color: rgba(0, 128, 128, 0.2); } /* Teal - Mansha */
+        .wish-card-4 { background-color: rgba(255, 127, 127, 0.2); } /* Coral - Aditya */
+        .wish-card-5 { background-color: rgba(147, 112, 219, 0.2); } /* Medium Purple - Megha */
         @media (max-width: 640px) {
             .container { padding: 0 0.5rem; }
             .gallery-img { width: clamp(120px, 25vw, 150px); height: clamp(120px, 25vw, 150px); }
             .wish-card img { width: clamp(64px, 15vw, 80px); height: clamp(64px, 15vw, 80px); }
-            .card { height: clamp(80px, 12vw, 100px); }
+            .card { height: clamp(100px, 15vw, 120px); }
             .text-3xl { font-size: clamp(1.5rem, 4vw, 2rem); }
             .text-2xl { font-size: clamp(1.25rem, 3.5vw, 1.5rem); }
             .text-sm { font-size: clamp(0.7rem, 2vw, 0.8rem); }
@@ -195,13 +168,6 @@
             <h1 class="text-[clamp(2rem,6vw,3rem)] text-purple-400 font-bold neon-glow text-center my-4">Happy Birthday Richa 🎉</h1>
             <img src="https://via.placeholder.com/150?text=Eevee" alt="Eevee" class="w-[clamp(100px,15vw,120px)] h-[clamp(100px,15vw,120px)] rounded-full border-4 border-purple-600 bounce object-cover">
         </div>
-        <div class="absolute top-4 right-4">
-            <audio id="bg-music" autoplay loop>
-                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            <button onclick="toggleMute(event)" class="bg-purple-600 text-white px-2 py-1 rounded text-sm hover:bg-purple-700">Mute</button>
-        </div>
         <div class="absolute inset-0 pointer-events-none">
             <div class="digital-effect bg-red-600 rounded-full left-[10%]" style="animation-delay: 0s;"></div>
             <div class="digital-effect bg-purple-600 rounded-full left-[20%]" style="animation-delay: 2s;"></div>
@@ -218,30 +184,18 @@
                 <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-gray-300"><strong>Sac:</strong> Happy Birthday! Your Taekwondo kicks are as epic as your BTS dance moves!</p>
             </div>
             <div class="flip-in p-3 border-2 border-purple-600 rounded-md shadow-md wish-card-2">
-                <img src="https://via.placeholder.com/100?text=Aly" alt="Aly" class="w-[clamp(80px,15vw,96px)] h-[clamp(80px,15vw,96px)] mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
-                <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-gray-300"><strong>Aly:</strong> Slam-dunk birthday! Keep shining in Biology & AI!</p>
-            </div>
-            <div class="flip-in p-3 border-2 border-purple-600 rounded-md shadow-md wish-card-3">
-                <img src="https://via.placeholder.com/100?text=Ary" alt="Ary" class="w-[clamp(80px,15vw,96px)] h-[clamp(80px,15vw,96px)] mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
-                <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-gray-300"><strong>Ary:</strong> Happy Birthday! Your drawings and BTS love are iconic!</p>
-            </div>
-            <div class="flip-in p-3 border-2 border-purple-600 rounded-md shadow-md wish-card-4">
                 <img src="https://via.placeholder.com/100?text=Vaibhavi" alt="Vaibhavi" class="w-[clamp(80px,15vw,96px)] h-[clamp(80px,15vw,96px)] mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
                 <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-gray-300"><strong>Vaibhavi:</strong> Happiest Birthday! Rock that hula hoop like a BTS star! 🫶🏻</p>
             </div>
-            <div class="flip-in p-3 border-2 border-purple-600 rounded-md shadow-md wish-card-5">
-                <img src="https://via.placeholder.com/100?text=Shruti" alt="Shruti" class="w-[clamp(80px,15vw,96px)] h-[clamp(80px,15vw,96px)] mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
-                <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-gray-300"><strong>Shruti:</strong> Happy Birthday! Your passion for AI and basketball is inspiring!</p>
-            </div>
-            <div class="flip-in p-3 border-2 border-purple-600 rounded-md shadow-md wish-card-6">
+            <div class="flip-in p-3 border-2 border-purple-600 rounded-md shadow-md wish-card-3">
                 <img src="https://via.placeholder.com/100?text=Mansha" alt="Mansha" class="w-[clamp(80px,15vw,96px)] h-[clamp(80px,15vw,96px)] mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
                 <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-gray-300"><strong>Mansha:</strong> Wishing you a colorful birthday full of art and BTS vibes!</p>
             </div>
-            <div class="flip-in p-3 border-2 border-purple-600 rounded-md shadow-md wish-card-7">
+            <div class="flip-in p-3 border-2 border-purple-600 rounded-md shadow-md wish-card-4">
                 <img src="https://via.placeholder.com/100?text=Aditya" alt="Aditya" class="w-[clamp(80px,15vw,96px)] h-[clamp(80px,15vw,96px)] mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
                 <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-gray-300"><strong>Aditya:</strong> Happy Birthday! Keep kicking it in Taekwondo and science!</p>
             </div>
-            <div class="flip-in p-3 border-2 border-purple-600 rounded-md shadow-md wish-card-8">
+            <div class="flip-in p-3 border-2 border-purple-600 rounded-md shadow-md wish-card-5">
                 <img src="https://via.placeholder.com/100?text=Megha" alt="Megha" class="w-[clamp(80px,15vw,96px)] h-[clamp(80px,15vw,96px)] mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
                 <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-gray-300"><strong>Megha:</strong> Happy Birthday, Richa! Your energy lights up every room like a BTS stage!</p>
             </div>
@@ -251,38 +205,46 @@
     <!-- Photo Gallery -->
     <section class="py-8 bg-gray-900 text-center">
         <h2 class="text-[clamp(1.5rem,4vw,2rem)] font-semibold text-purple-400 neon-glow mb-6">Photo Gallery 📸</h2>
-        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 px-4 max-w-full">
-            <div class="gallery-img gallery-img-1">
-                <img src="Ric.jpeg" alt="Memory 1" class="rounded-md border-2 hover:scale-105 transition-transform">
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4 max-w-full">
+            <div class="gallery-img">
+                <img src="Ric.jpeg" alt="Memory 1" class="rounded-md border-2">
                 <span class="caption">Richa In Her Favourite Colour</span>
             </div>
-            <div class="gallery-img gallery-img-2">
-                <img src="Ric Jr Cake.jpeg" alt="Memory 2" class="rounded-md border-2 hover:scale-105 transition-transform">
+            <div class="gallery-img">
+                <img src="Ric Jr Cake.jpeg" alt="Memory 2" class="rounded-md border-2">
                 <span class="caption">Knife Queen</span>
             </div>
-            <div class="gallery-img gallery-img-3">
-                <img src="Ric Competetion.jpeg" alt="Memory 3" class="rounded-md border-2 hover:scale-105 transition-transform">
-                <span class="caption">Certifiacte Secured, Memories Unlocked 🥇 </span>
+            <div class="gallery-img">
+                <img src="Ric Competetion.jpeg" alt="Memory 3" class="rounded-md border-2">
+                <span class="caption">Certificate Secured, Memories Unlocked 🥇</span>
             </div>
-            <div class="gallery-img gallery-img-4">
-                <img src="Get Together.jpeg" alt="Memory 4" class="rounded-md border-2 hover:scale-105 transition-transform">
+            <div class="gallery-img">
+                <img src="Get Together.jpeg" alt="Memory 4" class="rounded-md border-2">
                 <span class="caption">Mini Crew</span>
             </div>
-            <div class="gallery-img gallery-img-5">
-                <img src="Ric - Vimarsh.jpeg" alt="Memory 5" class="rounded-md border-2 hover:scale-105 transition-transform">
+            <div class="gallery-img">
+                <img src="Ric - Vimarsh.jpeg" alt="Memory 5" class="rounded-md border-2">
                 <span class="caption">Behind The Scenes, Running The Scenes</span>
             </div>
-            <div class="gallery-img gallery-img-6">
-                <img src="https://via.placeholder.com/200?text=Memory+6" alt="Memory 6" class="rounded-md border-2 hover:scale-105 transition-transform">
-                <span class="caption">AI Breakthrough</span>
+            <div class="gallery-img">
+                <img src="https://via.placeholder.com/200?text=BTS+Concert" alt="Memory 6" class="rounded-md border-2">
+                <span class="caption">BTS Concert Moment</span>
             </div>
-            <div class="gallery-img gallery-img-7">
-                <img src="https://via.placeholder.com/200?text=Memory+7" alt="Memory 7" class="rounded-md border-2 hover:scale-105 transition-transform">
-                <span class="caption">Biology Lab Moment</span>
+            <div class="gallery-img">
+                <img src="https://via.placeholder.com/200?text=Taekwondo+Kick" alt="Memory 7" class="rounded-md border-2">
+                <span class="caption">Taekwondo Kick</span>
             </div>
-            <div class="gallery-img gallery-img-8">
-                <img src="https://via.placeholder.com/200?text=Memory+8" alt="Memory 8" class="rounded-md border-2 hover:scale-105 transition-transform">
-                <span class="caption">Winter Adventure</span>
+            <div class="gallery-img">
+                <img src="https://via.placeholder.com/200?text=Art+Studio" alt="Memory 8" class="rounded-md border-2">
+                <span class="caption">Art Studio</span>
+            </div>
+            <div class="gallery-img">
+                <img src="https://via.placeholder.com/200?text=Winter+Stroll" alt="Memory 9" class="rounded-md border-2">
+                <span class="caption">Winter Stroll</span>
+            </div>
+            <div class="gallery-img">
+                <img src="https://via.placeholder.com/200?text=Science+Fair" alt="Memory 10" class="rounded-md border-2">
+                <span class="caption">Science Fair Win</span>
             </div>
         </div>
         <div id="lightbox" class="lightbox" onclick="hideLightbox()">
@@ -290,102 +252,80 @@
         </div>
     </section>
 
-    <!-- Music Zone -->
-    <section class="py-8 bg-gray-800 text-center">
-        <h2 class="text-[clamp(1.5rem,4vw,2rem)] font-semibold text-purple-400 neon-glow mb-6">Music Zone 🎶</h2>
-        <div class="container mx-auto max-w-[min(90vw,400px)] bg-gray-700 p-4 border-2 border-purple-600 rounded-md shadow-md">
-            <p id="now-playing" class="text-[clamp(0.8rem,2vw,0.9rem)] text-gray-300 mb-2">Now Playing: Happy Birthday</p>
-            <audio id="music-player" controls class="w-full mb-4">
-                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            <div class="flex justify-center gap-2 mt-2">
-                <button onclick="playPause(event)" class="bg-purple-600 text-white px-2 py-1 rounded text-[clamp(0.7rem,2vw,0.8rem)] hover:bg-purple-700 flex items-center gap-2">
-                    <span id="play-pause-icon">▶️</span> Play/Pause
-                </button>
-                <button onclick="nextTrack(event)" class="bg-purple-600 text-white px-2 py-1 rounded text-[clamp(0.7rem,2vw,0.8rem)] hover:bg-purple-700 flex items-center gap-2">
-                    ⏭️ Next
-                </button>
-            </div>
-            <select id="song-select" onchange="changeSong()" class="mt-2">
-                <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">Happy Birthday</option>
-                <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">BTS - Dynamite</option>
-                <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3">BTS - Butter</option>
-                <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3">BTS - Permission to Dance</option>
-            </select>
-            <div class="mt-2 flex justify-center gap-1">
-                <span class="equalizer-bar"></span>
-                <span class="equalizer-bar"></span>
-                <span class="equalizer-bar"></span>
-                <span class="equalizer-bar"></span>
-            </div>
-        </div>
-    </section>
-
     <!-- Fun Facts About Richa -->
     <section class="py-8 bg-gradient-to-r from-gray-900 to-purple-900 text-center">
         <h2 class="text-[clamp(1.5rem,4vw,2rem)] font-semibold text-purple-400 neon-glow mb-6">Fun Facts About Richa 🌹</h2>
-        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4 max-w-full">
-            <div class="card">
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4 max-w-full">
+            <div class="card flip-in">
                 <div class="card-front bg-gray-700 p-4 flex items-center justify-center">
-                    <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-purple-400 font-bold">🌹 Favorite Flower</p>
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-purple-400 font-bold">🌹 Favorite Flower</p>
                 </div>
-                <div class="card-back bg-gray-700 p-4 flex items-center justify-center">
-                    <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-gray-300">Red Rose</p>
+                <div class="card-back bg-gray-700 p-4">
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-gray-300">🌸 Red Rose</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card flip-in">
                 <div class="card-front bg-gray-700 p-4 flex items-center justify-center">
-                    <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-purple-400 font-bold">❄️ Favorite Season</p>
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-purple-400 font-bold">❄️ Favorite Season</p>
                 </div>
-                <div class="card-back bg-gray-700 p-4 flex items-center justify-center">
-                    <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-gray-300">Winter</p>
+                <div class="card-back bg-gray-700 p-4">
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-gray-300">❄️ Winter</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card flip-in">
                 <div class="card-front bg-gray-700 p-4 flex items-center justify-center">
-                    <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-purple-400 font-bold">🎤 Favorite Singer</p>
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-purple-400 font-bold">🎤 Favorite Singer</p>
                 </div>
-                <div class="card-back bg-gray-700 p-4 flex items-center justify-center">
-                    <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-gray-300">Jungkook</p>
+                <div class="card-back bg-gray-700 p-4">
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-gray-300">🎵 Jungkook</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card flip-in">
                 <div class="card-front bg-gray-700 p-4 flex items-center justify-center">
-                    <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-purple-400 font-bold">🥋 Favorite Sport</p>
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-purple-400 font-bold">🥋 Favorite Sport</p>
                 </div>
-                <div class="card-back bg-gray-700 p-4 flex items-center justify-center">
-                    <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-gray-300">Taekwondo</p>
+                <div class="card-back bg-gray-700 p-4">
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-gray-300">🥊 Taekwondo</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card flip-in">
                 <div class="card-front bg-gray-700 p-4 flex items-center justify-center">
-                    <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-purple-400 font-bold">🎨 Hobby</p>
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-purple-400 font-bold">🎨 Hobby</p>
                 </div>
-                <div class="card-back bg-gray-700 p-4 flex items-center justify-center">
-                    <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-gray-300">Drawing</p>
+                <div class="card-back bg-gray-700 p-4">
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-gray-300">✍️ Drawing</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card flip-in">
                 <div class="card-front bg-gray-700 p-4 flex items-center justify-center">
-                    <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-purple-400 font-bold">🧬 Favorite Subject</p>
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-purple-400 font-bold">🧬 Favorite Subject</p>
                 </div>
-                <div class="card-back bg-gray-700 p-4 flex items-center justify-center">
-                    <p class="text-[clamp(0.7rem,2vw,0.8rem)] text-gray-300">Biology & AI</p>
+                <div class="card-back bg-gray-700 p-4">
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-gray-300">🔬 Biology & AI</p>
+                </div>
+            </div>
+            <div class="card flip-in">
+                <div class="card-front bg-gray-700 p-4 flex items-center justify-center">
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-purple-400 font-bold">🎨 Favorite Color</p>
+                </div>
+                <div class="card-back bg-gray-700 p-4">
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-gray-300">💜 Purple</p>
+                </div>
+            </div>
+            <div class="card flip-in">
+                <div class="card-front bg-gray-700 p-4 flex items-center justify-center">
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-purple-400 font-bold">✈️ Dream Destination</p>
+                </div>
+                <div class="card-back bg-gray-700 p-4">
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-gray-300">🏙️ Seoul</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Quiz Section -->
-    <section class="py-8 bg-gradient-to-r from-purple-900 to-blue-900 text-center">
-        <h2 class="text-[clamp(1.5rem,4vw,2rem)] font-semibold text-purple-400 neon-glow mb-6">Do You Really Know Richa? 📝</h2>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5Cql40yl-wLhl0FQN_rSqfzIvaIt2BeZEVNSJiwxTD2jdWg/viewform?embedded=true" target="_blank" class="bg-red-600 text-white px-6 py-2 rounded-md text-[clamp(1rem,3vw,1.25rem)] hover:bg-red-700 transition neon-glow">Take the Quiz!</a>
-    </section>
-
-    <!-- Closing Surprise -->
+    <!-- Final Note -->
     <section class="py-8 bg-gray-900 text-center relative">
-        <h2 class="text-[clamp(1.5rem,4vw,2rem)] font-semibold text-purple-400 neon-glow mb-6">A Special Surprise ✨</h2>
+        <h2 class="text-[clamp(1.5rem,4vw,2rem)] font-semibold text-purple-400 neon-glow mb-6">A Final Note ✨</h2>
         <div class="container mx-auto max-w-[min(90vw,400px)] bg-gray-700 p-6 border-2 border-purple-600 rounded-md shadow-md handwritten">
             <p class="text-[clamp(0.8rem,2vw,0.9rem)] text-gray-300">
                 Dear Richa,<br>
@@ -393,11 +333,6 @@
                 Happy Birthday Alyrra 💜<br>
                 — From your Unpredictable Lil Monster
             </p>
-            <button onclick="showRose(event)" class="bg-red-600 text-white px-4 py-2 rounded text-[clamp(0.7rem,2vw,0.8rem)] mt-4 hover:bg-red-700 transition">One Last Gift</button>
-        </div>
-        <div id="rose-gif" class="hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-1000 text-center">
-            <img src="https://via.placeholder.com/300?text=Digital+Rose" alt="Digital Rose" class="max-w-[min(80vw,300px)] max-h-[min(80vw,300px)] object-contain">
-            <button onclick="hideRose()" class="bg-purple-600 text-white px-2 py-1 rounded text-[clamp(0.7rem,2vw,0.8rem)] mt-2 hover:bg-purple-700">Close</button>
         </div>
         <div class="absolute inset-0 pointer-events-none">
             <div class="digital-effect bg-red-600 rounded-full left-[10%]" style="animation-delay: 0s;"></div>
@@ -407,21 +342,6 @@
     </section>
 
     <script>
-        const playlist = [
-            { src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", title: "Happy Birthday" },
-            { src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3", title: "BTS - Dynamite" },
-            { src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3", title: "BTS - Butter" },
-            { src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3", title: "BTS - Permission to Dance" }
-        ];
-        let currentTrackIndex = 0;
-
-        function toggleMute(event) {
-            event.preventDefault();
-            const audio = document.getElementById('bg-music');
-            audio.muted = !audio.muted;
-            event.target.textContent = audio.muted ? 'Unmute' : 'Mute';
-        }
-
         function showLightbox(src) {
             const lightbox = document.getElementById('lightbox');
             const img = document.getElementById('lightbox-img');
@@ -433,68 +353,11 @@
             document.getElementById('lightbox').style.display = 'none';
         }
 
-        function playPause(event) {
-            event.preventDefault();
-            const audio = document.getElementById('music-player');
-            const icon = document.getElementById('play-pause-icon');
-            const bars = document.querySelectorAll('.equalizer-bar');
-            if (audio.paused) {
-                audio.play();
-                icon.textContent = '⏸️';
-                bars.forEach(bar => bar.classList.add('active'));
-            } else {
-                audio.pause();
-                icon.textContent = '▶️';
-                bars.forEach(bar => bar.classList.remove('active'));
-            }
-        }
-
-        function nextTrack(event) {
-            event.preventDefault();
-            currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
-            const audio = document.getElementById('music-player');
-            const nowPlaying = document.getElementById('now-playing');
-            const icon = document.getElementById('play-pause-icon');
-            const bars = document.querySelectorAll('.equalizer-bar');
-            audio.src = playlist[currentTrackIndex].src;
-            nowPlaying.textContent = `Now Playing: ${playlist[currentTrackIndex].title}`;
-            audio.play();
-            icon.textContent = '⏸️';
-            bars.forEach(bar => bar.classList.add('active'));
-            document.getElementById('song-select').value = playlist[currentTrackIndex].src;
-        }
-
-        function changeSong() {
-            const select = document.getElementById('song-select');
-            const audio = document.getElementById('music-player');
-            const nowPlaying = document.getElementById('now-playing');
-            const icon = document.getElementById('play-pause-icon');
-            const bars = document.querySelectorAll('.equalizer-bar');
-            const selectedTrack = playlist.find(track => track.src === select.value);
-            currentTrackIndex = playlist.indexOf(selectedTrack);
-            audio.src = selectedTrack.src;
-            nowPlaying.textContent = `Now Playing: ${selectedTrack.title}`;
-            audio.play();
-            icon.textContent = '⏸️';
-            bars.forEach(bar => bar.classList.add('active'));
-        }
-
-        function showRose(event) {
-            event.preventDefault();
-            document.getElementById('rose-gif').classList.remove('hidden');
-            confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
-        }
-
-        function hideRose() {
-            document.getElementById('rose-gif').classList.add('hidden');
-        }
-
         window.onload = () => {
-            const audio = document.getElementById('music-player');
-            const bars = document.querySelectorAll('.equalizer-bar');
-            if (!audio.paused) {
-                bars.forEach(bar => bar.classList.add('active'));
-            }
+            confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+            document.querySelectorAll('.gallery-img img').forEach(img => {
+                img.addEventListener('click', () => showLightbox(img.src));
+            });
         };
     </script>
 </body>
