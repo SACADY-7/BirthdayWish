@@ -145,12 +145,19 @@
             border-bottom-left-radius: 8px;
             border-bottom-right-radius: 8px;
         }
+        .quiz-button {
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .quiz-button:hover {
+            transform: scale(1.05);
+        }
         .wish-card-1 { background-color: rgba(46, 139, 87, 0.2); } /* Hunter Green - Sac */
         .wish-card-2 { background-color: rgba(0, 0, 139, 0.2); } /* Dark Blue - Vaibhavi */
         .wish-card-3 { background-color: rgba(0, 128, 128, 0.2); } /* Teal - Mansha */
         .wish-card-4 { background-color: rgba(255, 127, 127, 0.2); } /* Coral - Aditya */
         .wish-card-5 { background-color: rgba(147, 112, 219, 0.2); } /* Medium Purple - Megha */
-        .wish-card-6 { background-color: rgba(255, 215, 0, 0.2); } /* Gold - Ary */
+        .wish-card-6 { background-color: rgba(255, 215, 0, 0.2); } /* Gold - Shubhanghi (Mahi) */
         .wish-card p {
             line-height: 1.4;
         }
@@ -167,6 +174,7 @@
             .text-2xl { font-size: clamp(1.2rem, 3vw, 1.5rem); }
             .text-sm { font-size: clamp(0.6rem, 1.7vw, 0.7rem); }
             .handwritten p { font-size: clamp(0.7rem, 2vw, 0.85rem); }
+            .quiz-button { padding: 8px 16px; font-size: clamp(0.8rem, 2.3vw, 1rem); }
         }
         @media (min-width: 641px) and (max-width: 1024px) {
             .container { padding: 0 1rem; }
@@ -177,6 +185,7 @@
             .wish-card img { width: clamp(80px, 14vw, 100px); height: clamp(80px, 14vw, 100px); }
             .wish-card p { font-size: clamp(0.6rem, 1.7vw, 0.7rem); }
             .handwritten p { font-size: clamp(0.75rem, 2.1vw, 0.9rem); }
+            .quiz-button { padding: 10px 20px; font-size: clamp(0.85rem, 2.4vw, 1.05rem); }
         }
         @media (min-width: 1025px) {
             .landing-img { width: clamp(100px, 14vw, 120px); height: clamp(100px, 14vw, 120px); }
@@ -185,6 +194,7 @@
             .gallery { gap: 4px; justify-items: center; auto-rows: clamp(120px, 18vw, 160px); }
             .wish-card p { font-size: clamp(0.65rem, 1.8vw, 0.75rem); }
             .handwritten p { font-size: clamp(0.85rem, 2.2vw, 1rem); }
+            .quiz-button { padding: 12px 24px; font-size: clamp(0.9rem, 2.5vw, 1.1rem); }
         }
     </style>
 </head>
@@ -209,8 +219,7 @@
         <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4 max-w-5xl">
             <div class="flip-in p-2 border-2 border-purple-600 rounded-md shadow-md wish-card-1">
                 <img src="Sac_V.jpg" alt="Sac" class="wish-img mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
-                <p class="text-[clamp(0.65rem,1.8vw,0.75rem)] text-gray-300"><strong>Sac:</strong> Happy Birthday, Richa 🎉✨ Can You Believe It’s Already Been A Year Since We First Met By Roasting Each Other? 😂 From That Day Till Now, Our Bond Has Only Grown Stronger—From Council Members To Coaching Mates, And From Random Roasts To Real Friendship And Minor Lectures. Always Caring, Always Helping, And Always Talking (Nonstop 🤭). Wishing You Loads Of Happiness, Love, And Success Ahead 🌸💫 Stay The Same… And Yes, Keep Jumping Around Like That 🐒😉. Super Grateful To Have You As My Friend. Happy Birthday Once Again, Buddy—Keep That Foodie And Monkey Energy Alive Forever 😉😇
- </p>
+                <p class="text-[clamp(0.65rem,1.8vw,0.75rem)] text-gray-300"><strong>Sac:</strong> Happy Birthday, Richa 🎉✨ Can You Believe It’s Already Been A Year Since We First Met By Roasting Each Other? 😂 From That Day Till Now, Our Bond Has Only Grown Stronger—From Council Members To Coaching Mates, And From Random Roasts To Real Friendship And Minor Lectures. Always Caring, Always Helping, And Always Talking (Nonstop 🤭). Wishing You Loads Of Happiness, Love, And Success Ahead 🌸💫 Stay The Same… And Yes, Keep Jumping Around Like That 🐒😉. Super Grateful To Have You As My Friend. Happy Birthday Once Again, Buddy—Keep That Foodie And Monkey Energy Alive Forever 😉😇</p>
             </div>
             <div class="flip-in p-2 border-2 border-purple-600 rounded-md shadow-md wish-card-2">
                 <img src="Vaibhavir.jpeg" alt="Vaibhavi" class="wish-img mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
@@ -218,26 +227,19 @@
             </div>
             <div class="flip-in p-2 border-2 border-purple-600 rounded-md shadow-md wish-card-3">
                 <img src="Mansha.jpg" alt="Mansha" class="wish-img mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
-                <p class="text-[clamp(0.65rem,1.8vw,0.75rem)] text-gray-300"><strong>Mansha:</strong> From being council members to now being coaching mates, it’s crawwwzy how our bond has stayed so strong. You’re honestly one of the purest souls I know-always caring, always helping, and spreading positivity everywhere. I really admire your outgoing nature. You never fail to bring joy with your optimistic personality. Super grateful to have you as a friend. Wishing you all the happiness and success....
-💸 HAPPY BIRTHDAY RICH RICH RICHAAAA</p>
+                <p class="text-[clamp(0.65rem,1.8vw,0.75rem)] text-gray-300"><strong>Mansha:</strong> From being council members to now being coaching mates, it’s crawwwzy how our bond has stayed so strong. You’re honestly one of the purest souls I know-always caring, always helping, and spreading positivity everywhere. I really admire your outgoing nature. You never fail to bring joy with your optimistic personality. Super grateful to have you as a friend. Wishing you all the happiness and success.... 💸 HAPPY BIRTHDAY RICH RICH RICHAAAA</p>
             </div>
             <div class="flip-in p-2 border-2 border-purple-600 rounded-md shadow-md wish-card-4">
                 <img src="Adi.jpg" alt="Aditya" class="wish-img mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
-                <p class="text-[clamp(0.65rem,1.8vw,0.75rem)] text-gray-300"><strong>Aditya:</strong> Happy Birthday Richa! 🎉
-Richa tu na ekdum alag hi level pe hai – matlab duniya friends, hobbies, goals ke chakkar mein hai aur tu bas food ke piche bhag rahi hoti hai 🍕😂. Kabhi kabhi lagta hai agar tujhe ek din khana na mile na, to tu khud hi cake ban jaayegi! 🎂 Roast jyada ho gaya kya? Chal theek hai, abhi ke liye bacha leta hoon warna birthday pe tujhe hi khana bolke serve kar denge. Enjoy kar apna din, Food Queen! 👑</p>
+                <p class="text-[clamp(0.65rem,1.8vw,0.75rem)] text-gray-300"><strong>Aditya:</strong> Happy Birthday Richa! 🎉 Richa tu na ekdum alag hi level pe hai – matlab duniya friends, hobbies, goals ke chakkar mein hai aur tu bas food ke piche bhag rahi hoti hai 🍕😂. Kabhi kabhi lagta hai agar tujhe ek din khana na mile na, to tu khud hi cake ban jaayegi! 🎂 Roast jyada ho gaya kya? Chal theek hai, abhi ke liye bacha leta hoon warna birthday pe tujhe hi khana bolke serve kar denge. Enjoy kar apna din, Food Queen! 👑</p>
             </div>
             <div class="flip-in p-2 border-2 border-purple-600 rounded-md shadow-md wish-card-5">
                 <img src="Megha_V.jpg" alt="Megha" class="wish-img mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
                 <p class="text-[clamp(0.65rem,1.8vw,0.75rem)] text-gray-300"><strong>Megha:</strong> Happy Birthday, Richa! Wishing You A Day Filled With Love, Laughter, And All Your Favorite Things. 🎉 May This Year Bring You Joy, Success, And Unforgettable Moments. You Deserve To Be Celebrated And Cherished. ❤ Happy Birthday And May God Bless You! 💙</p>
             </div>
             <div class="flip-in p-2 border-2 border-purple-600 rounded-md shadow-md wish-card-6">
-                <img src="Mahi-Adi.jpg" alt="Ary" class="wish-img mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
-                <p class="text-[clamp(0.65rem,1.8vw,0.75rem)] text-gray-300"><strong>Shubhanghi (Mahi):<strong> Happiest Birthday Richa 
-✨💫
-I hope all your dreams come true and especially this one- 
- You wanna murder Aditya. You can definitely do it. 
-And that's all 
- Enjoy your day 🌟</p>
+                <img src="Mahi-Adi.jpg" alt="Shubhanghi (Mahi)" class="wish-img mx-auto rounded-full mb-2 border-2 border-blue-900 object-cover">
+                <p class="text-[clamp(0.65rem,1.8vw,0.75rem)] text-gray-300"><strong>Shubhanghi (Mahi):</strong> Happiest Birthday Richa ✨💫 I hope all your dreams come true and especially this one- You wanna murder Aditya. You can definitely do it. And that's all Enjoy your day 🌟</p>
             </div>
         </div>
     </section>
@@ -276,15 +278,15 @@ And that's all
             </div>
             <div class="gallery-img">
                 <img src="Teachers Day Ric-Vaibhavi.jpeg" alt="Memory 8" class="rounded-full border-3">
-                <span class="caption">Teacher's Day </span>
+                <span class="caption">Teacher's Day</span>
             </div>
             <div class="gallery-img">
                 <img src="Ric Jr.jpeg" alt="Memory 9" class="rounded-full border-3">
-                <span class="caption">Tiny Hands, Big Attitude 🌟 </span>
+                <span class="caption">Tiny Hands, Big Attitude 🌟</span>
             </div>
             <div class="gallery-img">
-                <img src="Ric With Aunty Ji.jpeg"alt="Memory 10" class="rounded-full border-3">
-                <span class="caption">Mom's Little Sunshine ☀️ </span>
+                <img src="Ric With Aunty Ji.jpeg" alt="Memory 10" class="rounded-full border-3">
+                <span class="caption">Mom's Little Sunshine ☀️</span>
             </div>
         </div>
         <div id="lightbox" class="lightbox" onclick="hideLightbox()">
@@ -325,7 +327,7 @@ And that's all
                     <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-purple-400 font-bold">🥋 Favorite Sport</p>
                 </div>
                 <div class="card-back bg-gray-700 p-4">
-                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-gray-300"> Basketball</p>
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-gray-300">🏀 Basketball</p>
                 </div>
             </div>
             <div class="card flip-in">
@@ -349,7 +351,7 @@ And that's all
                     <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-purple-400 font-bold">🎨 Favorite Color</p>
                 </div>
                 <div class="card-back bg-gray-700 p-4">
-                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-gray-300">Hunter Green / Purple</p>
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-gray-300">💚 Hunter Green / 💜 Purple</p>
                 </div>
             </div>
             <div class="card flip-in">
@@ -357,9 +359,16 @@ And that's all
                     <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-purple-400 font-bold">✈️ Dream Destination</p>
                 </div>
                 <div class="card-back bg-gray-700 p-4">
-                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-gray-300">🏙️ Seoul And U.S</p>
+                    <p class="text-[clamp(0.8rem,2.5vw,1rem)] text-gray-300">🏙️ Seoul and U.S.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Quiz Button -->
+    <section class="py-6 bg-gray-900 text-center">
+        <div class="container mx-auto max-w-5xl px-4">
+            <a href="https://forms.gle/6zExP1uqfMPGnu9s8" target="_blank" rel="noopener noreferrer" class="quiz-button bg-purple-600 hover:bg-purple-500 text-white font-semibold border-2 border-purple-600 rounded-md shadow-md px-6 py-3 text-[clamp(0.9rem,2.5vw,1.1rem)] neon-glow bounce inline-block">Take the Richa Quiz! 🎉</a>
         </div>
     </section>
 
@@ -369,11 +378,9 @@ And that's all
         <div class="container mx-auto max-w-[min(90vw,500px)] bg-gray-700 p-6 border-2 border-purple-600 rounded-md shadow-md handwritten mx-auto">
             <p class="text-[clamp(0.85rem,2.2vw,1rem)] text-gray-300">
                 Dear Richa,<br>
-                It’s crazy to think a year has passed since our first roasts . From teasing each other to making real memories, this friendship has been a rollercoaster of laughs, chaos, and nonstop fun 🐒😉. You’re one of the most caring, energetic, and unforgettable people I know.
-
-Thanks for all the moments, the food adventures, and the pure monkey energy 🎉. Keep being your amazing self, and let’s make this year even crazier!
-
-—Your Unpredictable Lil Monster 😈😇
+                It’s crazy to think a year has passed since our first roasts. From teasing each other to making real memories, this friendship has been a rollercoaster of laughs, chaos, and nonstop fun 🐒😉. You’re one of the most caring, energetic, and unforgettable people I know.<br>
+                Thanks for all the moments, the food adventures, and the pure monkey energy 🎉. Keep being your amazing self, and let’s make this year even crazier!<br>
+                — Your Unpredictable Lil Monster 😈😇
             </p>
         </div>
         <div class="absolute inset-0 pointer-events-none">
